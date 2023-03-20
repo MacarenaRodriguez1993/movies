@@ -11,21 +11,20 @@ function App() {
   const [topMovie, setTopMovie] = useState([]);
   useEffect(() => {
     getMovies();
-    reset();
   }, []);
   const getMovies = async () => {
     const movies = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?api_key=b8fec63b21e4487c8bf47e84ca21a09d"
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`
     );
     setPopular(movies.data.results);
     const moviesTop = await axios.get(
-      "https://api.themoviedb.org/3/movie/top_rated?api_key=b8fec63b21e4487c8bf47e84ca21a09d"
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}`
     );
     setTopMovie(moviesTop.data.results);
   };
   const onSearch = async (movie) => {
     const movies = await axios.get(
-      `https://api.themoviedb.org/3/search/movie?api_key=b8fec63b21e4487c8bf47e84ca21a09d&query=${movie}`
+      `https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY}&query=${movie}`
     );
     setTopMovie(movies.data.results);
   };
