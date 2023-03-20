@@ -1,3 +1,14 @@
 .home {
   height: 100vh;
 }
+.boton {
+  display: flex;
+  justify-content: space-around;
+  background-color: #366ed0;
+  color: #fff;
+  border: none;
+  border-radius: 1em;
+  padding: 0.5em 2em;
+  margin: 1em 0;
+  align-items: center;
+}

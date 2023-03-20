@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Loading from "../loading/loading";
 import "./allMovies.css";
 const AllMovies = ({ topMovie }) => {
   return (
@@ -7,15 +8,11 @@ const AllMovies = ({ topMovie }) => {
       <div className="top">
         <h1>🔥 All Movies</h1>
       </div>
-      <div style={{ display: "grid" }}>
-        {topMovie?.map((m) => {
-          return (
-            <>
-              <Link
-                to={`/details/${m.id}`}
-                style={{ textDecoration: "none", color: "#020262" }}
-                className="clickDetails"
-              >
+      {topMovie ? (
+        <div style={{ display: "grid" }}>
+          {topMovie?.map((m) => {
+            return (
+              <>
                 <div className="colum">
                   <div className="imageTop">
                     <img
@@ -28,14 +25,24 @@ const AllMovies = ({ topMovie }) => {
                   <div className="descriptionTop">
                     <h1>{m.title}</h1>
                     <p>{m.overview}</p>
+                    <Link
+                      to={`/details/${m.id}`}
+                      style={{ textDecoration: "none", color: "#020262" }}
+                      className="clickDetails"
+                    >
+                      <button className="boton">More..</button>
+                    </Link>
                   </div>
                 </div>
-              </Link>
-              <hr style={{ width: "80%" }} />
-            </>
-          );
-        })}
-      </div>
+
+                <hr style={{ width: "80%" }} />
+              </>
+            );
+          })}
+        </div>
+      ) : (
+        <Loading />
+      )}
     </>
   );
 };

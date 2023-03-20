@@ -9,16 +9,17 @@ import AllPopular from "./pages/popularMovies/popularMovies";
 function App() {
   const [popular, setPopular] = useState([]);
   const [topMovie, setTopMovie] = useState([]);
+  const [page, setPage] = useState(1);
   useEffect(() => {
     getMovies();
-  }, []);
+  }, [page]);
   const getMovies = async () => {
     const movies = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`
     );
     setPopular(movies.data.results);
     const moviesTop = await axios.get(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
     );
     setTopMovie(moviesTop.data.results);
   };
@@ -28,7 +29,10 @@ function App() {
     );
     setTopMovie(movies.data.results);
   };
-
+  const changePage = (pagina) => {
+    setPage(pagina);
+    console.log(pagina);
+  };
   const reset = () => {
     getMovies();
   };
@@ -39,7 +43,13 @@ function App() {
         <Route
           path="/"
           element={
-            <Home popular={popular} topMovie={topMovie} onSearch={onSearch} />
+            <Home
+              popular={popular}
+              topMovie={topMovie}
+              onSearch={onSearch}
+              changePage={changePage}
+              page={page}
+            />
           }
         />
         <Route path="/details/:id" element={<Details />} />
