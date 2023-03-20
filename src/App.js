@@ -11,7 +11,6 @@ function App() {
   const [topMovie, setTopMovie] = useState([]);
   useEffect(() => {
     getMovies();
-    console.log(process.env.REACT_APP_API_KEY);
   }, []);
   const getMovies = async () => {
     const movies = await axios.get(
