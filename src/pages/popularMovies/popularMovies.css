@@ -1,0 +1,14 @@
+.allPopular {
+  background-color: #002;
+  min-height: 100vh;
+  color: #fff;
+}
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  justify-content: center;
+}
+.cardPopular {
+  margin: 1.5em 0.5em;
+}

@@ -1,0 +1,12 @@
+.banner {
+  background-image: url("../../Avatar.jpg");
+  background-size: cover;
+  height: 80%;
+  color: #366ed0;
+}
+.title {
+  text-align: center;
+  margin: auto;
+  margin-top: 4em;
+  font-size: xx-large;
+}

@@ -1,0 +1,30 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em 7em;
+}
+.cardPop {
+  display: flex;
+  justify-content: space-around;
+  background-color: #002;
+  color: #fff;
+  border-radius: 1em;
+  margin: 0em 7em;
+  padding: 0.5em;
+  text-align: center;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-inline: 5em;
+  top: -20%;
+  position: relative;
+}
+.buttonCarousel {
+  background-color: #002;
+  color: #fff;
+  border-radius: 100%;
+  border: none;
+  padding: 0.5em;
+  margin: 0em -0.5em;
+}

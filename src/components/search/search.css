@@ -1,0 +1,13 @@
+.search {
+  border-radius: 1em;
+  width: fit-content;
+  background-color: #adb1b4d8;
+  padding: 0.5em 1em;
+  align-self: center;
+  margin: auto;
+}
+.input {
+  background-color: #adb1b452;
+  border: none;
+  font-size: x-large;
+}
