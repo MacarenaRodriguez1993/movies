@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "../../components/loading/loading";
 import Navbar from "../../components/navbar/navbar";
 import "./details.css";
 const Details = () => {
@@ -73,7 +74,7 @@ const Details = () => {
         </div>
       ) : (
         <div>
-          <h3>loading</h3>
+          <Loading />
         </div>
       )}
     </div>
